@@ -8,5 +8,5 @@ const (
 )
 
 func (myEnum _MyEnumType_) ToString() string {
-	return []string{ _MyEnumArr_ }[myEnum]
+	return []string{ "Default",_MyEnumArr_ }[myEnum]
 }
