@@ -1,0 +1,12 @@
+package _pkg_
+
+type _MyEnumType_ int32
+
+const (
+	Default _MyEnumType_ = iota
+	_MyEnumArrDown_
+)
+
+func (myEnum _MyEnumType_) ToString() string {
+	return []string{ _MyEnumArr_ }[myEnum]
+}

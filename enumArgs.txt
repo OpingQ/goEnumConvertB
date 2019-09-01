@@ -1,0 +1,6 @@
+{
+    "FileName":"bettt",
+    "PackStr":"bet",
+    "MyEnumType":"BetZone",
+    "EnumSort":["top","down","right","left","big","small","tuiosss","iodjvcsddf"]
+}
