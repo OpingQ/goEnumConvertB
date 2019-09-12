@@ -29,17 +29,11 @@ func ConvGo(fileName, packStr, myEnumType string, enumSortNum []int, enumsort []
 	bs, err := ioutil.ReadFile("enumFormat.txt")
 	var str string
 	if err == nil {
-		fmt.Println(enumSortNum)
 		convertMinusOne(enumSortNum)
-		fmt.Println(enumSortNum)
 		if err2 := checkOk(enumSortNum, enumsort); err2 != nil {
 			return err2
 		}
-		fmt.Println(enumsort)
-		fmt.Println("-------------------------")
 		sortOrder(enumSortNum, enumsort)
-		fmt.Println(enumSortNum)
-		fmt.Println(enumsort)
 		str = string(bs)
 		str = strings.ReplaceAll(str, ipackStr, packStr)
 		str = strings.ReplaceAll(str, imyEnumType, myEnumType)
@@ -56,12 +50,16 @@ func ConvGo(fileName, packStr, myEnumType string, enumSortNum []int, enumsort []
 					astr = fmt.Sprintf(" %s = %d + iota", myEnumType, offset)
 				}
 			}
-			newd += strings.Title(v) + astr + "\n\t"
+			enumsort[k] = strings.Title(v)
+			newd += enumsort[k] + astr + "\n\t"
 		}
 
-		na := make([]string, 0, 5)
-		for _, v := range enumsort {
-			na = append(na, fmt.Sprintf("%q", v))
+		na := make([]string, enumSortNum[len(enumSortNum)-1])
+		for k := range na {
+			na[k] = fmt.Sprintf("%q", "")
+		}
+		for k, v := range enumSortNum {
+			na[v-1] = fmt.Sprintf("%q", enumsort[k])
 		}
 		newa := strings.Join(na, ",")
 

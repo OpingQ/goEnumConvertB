@@ -14,3 +14,7 @@ func (myEnum _MyEnumType_) String() string {
 func (myEnum _MyEnumType_) Int() int {
 	return int(myEnum)
 }
+
+func (myEnum _MyEnumType_) FullString() string {
+	return [...]string{"Default",_MyEnumArr_}[myEnum]
+}

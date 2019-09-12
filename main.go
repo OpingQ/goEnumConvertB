@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"goenumconvert/tool"
+	"goEnumConvertB/tool"
 	"io/ioutil"
 )
 
@@ -11,7 +11,7 @@ func main() {
 
 	// fmt.Println(bet.Right.Int())
 	// fmt.Println(bet.Left.Int())
-	// fmt.Println(bet.Jiod.Int())
+	//fmt.Println(bet.Jiod.FullString())
 	// fmt.Println(Left)
 	// fmt.Println(bet.Down)
 	// fmt.Println(bet.Left)

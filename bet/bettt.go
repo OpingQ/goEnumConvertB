@@ -20,3 +20,7 @@ func (myEnum BetZone) String() string {
 func (myEnum BetZone) Int() int {
 	return int(myEnum)
 }
+
+func (myEnum BetZone) FullString() string {
+	return [...]string{"Default","","Top","Down","","","","","My2","Jiod","","","","","","","","","","","Right","Left"}[myEnum]
+}
