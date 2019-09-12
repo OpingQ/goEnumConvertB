@@ -1,12 +1,16 @@
 package _pkg_
 
-type _MyEnumType_ int32
+type _MyEnumType_ int
 
 const (
 	Default _MyEnumType_ = iota
 	_MyEnumArrDown_
 )
 
-func (myEnum _MyEnumType_) ToString() string {
-	return []string{ "Default",_MyEnumArr_ }[myEnum]
+func (myEnum _MyEnumType_) String() string {
+	return string(myEnum)
+}
+
+func (myEnum _MyEnumType_) Int() int {
+	return int(myEnum)
 }

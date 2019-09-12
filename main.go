@@ -3,16 +3,27 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"goenumconvert/tool"
 	"io/ioutil"
-	"testlorca/ioTest/tool"
 )
 
 func main() {
 
+	// fmt.Println(bet.Right.Int())
+	// fmt.Println(bet.Left.Int())
+	// fmt.Println(bet.Jiod.Int())
+	// fmt.Println(Left)
+	// fmt.Println(bet.Down)
+	// fmt.Println(bet.Left)
+	// fmt.Println(bet.Tuiosss)
+	// fmt.Println(bet.Iodjvcsddf)
+
 	if bs, er := ioutil.ReadFile("enumArgs.txt"); er == nil {
 		v := new(tool.GoEnum)
 		json.Unmarshal(bs, v)
-		tool.ConvGo(v.FileName, v.PackStr, v.MyEnumType, v.EnumSort...)
+		if err := tool.ConvGo(v.FileName, v.PackStr, v.MyEnumType, v.EnumSortNum, v.EnumSort); err != nil {
+			fmt.Println(err)
+		}
 	} else {
 		fmt.Println(er)
 	}
