@@ -1,19 +1,24 @@
 package _pkg_
 
+// _MyEnumType_ Enum
 type _MyEnumType_ int
 
+// _MyEnumType_ Enum½s¸¹
 const (
 	Default _MyEnumType_ = iota
 	_MyEnumArrDown_
 )
 
+// string fmt
 func (myEnum _MyEnumType_) String() string {
 	return string(myEnum)
 }
 
+// Int fmt
 func (myEnum _MyEnumType_) Int() int {
 	return int(myEnum)
 }
+
 
 func (myEnum _MyEnumType_) FullString() string {
 	return [...]string{"Default",_MyEnumArr_}[myEnum]

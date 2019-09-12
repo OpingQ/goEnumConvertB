@@ -11,7 +11,6 @@ import (
 
 type GoEnum struct {
 	FileName    string
-	PackStr     string
 	MyEnumType  string
 	EnumSortNum []int
 	EnumSort    []string
@@ -25,7 +24,10 @@ const (
 )
 
 // ConvGo 產生go檔案
-func ConvGo(fileName, packStr, myEnumType string, enumSortNum []int, enumsort []string) error {
+func ConvGo(fileName, myEnumType string, enumSortNum []int, enumsort []string) error {
+	fileName = strings.ToLower(fileName)
+	myEnumType = strings.Title(myEnumType)
+
 	bs, err := ioutil.ReadFile("enumFormat.txt")
 	var str string
 	if err == nil {
@@ -35,7 +37,7 @@ func ConvGo(fileName, packStr, myEnumType string, enumSortNum []int, enumsort []
 		}
 		sortOrder(enumSortNum, enumsort)
 		str = string(bs)
-		str = strings.ReplaceAll(str, ipackStr, packStr)
+		str = strings.ReplaceAll(str, ipackStr, fileName)
 		str = strings.ReplaceAll(str, imyEnumType, myEnumType)
 
 		newd := ""
@@ -65,14 +67,14 @@ func ConvGo(fileName, packStr, myEnumType string, enumSortNum []int, enumsort []
 
 		str = strings.ReplaceAll(str, imead, newd)
 		str = strings.ReplaceAll(str, imearr, newa)
-		createFileAndFolder(packStr, fileName, str)
+		createFileAndFolder(fileName, str)
 		return nil
 	}
 	return err
 }
 
-func createFileAndFolder(packStr string, fileName string, data string) {
-	folder := "./" + packStr
+func createFileAndFolder(fileName string, data string) {
+	folder := "./" + fileName
 	if _, err := os.Stat(folder); err != nil {
 		os.Mkdir(folder, os.ModePerm)
 	}

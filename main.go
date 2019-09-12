@@ -21,7 +21,7 @@ func main() {
 	if bs, er := ioutil.ReadFile("enumArgs.txt"); er == nil {
 		v := new(tool.GoEnum)
 		json.Unmarshal(bs, v)
-		if err := tool.ConvGo(v.FileName, v.PackStr, v.MyEnumType, v.EnumSortNum, v.EnumSort); err != nil {
+		if err := tool.ConvGo(v.FileName, v.MyEnumType, v.EnumSortNum, v.EnumSort); err != nil {
 			fmt.Println(err)
 		}
 	} else {
