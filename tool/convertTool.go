@@ -42,10 +42,10 @@ func ConvGo(fileName, myEnumType string, enumSortNum []int, enumsort []string) e
 
 		newd := ""
 		astr := ""
-		offset := -1
+		offset := 0
 		for k, v := range enumsort {
 			astr = ""
-			if enumSortNum[k] != -1 && enumSortNum[k] != k+1 {
+			if enumSortNum[k] != 0 && enumSortNum[k] != k+1 {
 				curoffset := enumSortNum[k] - k - 1
 				if offset != curoffset {
 					offset = curoffset
@@ -117,7 +117,7 @@ func checkOk(enumSortNum []int, enumsort []string) error {
 func convertMinusOne(enumSortNum []int) {
 	begin := 0
 	for k := range enumSortNum {
-		if enumSortNum[k] == -1 {
+		if enumSortNum[k] == 0 {
 			enumSortNum[k] = begin + 1
 		}
 		begin = enumSortNum[k]

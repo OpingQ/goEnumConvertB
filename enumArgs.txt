@@ -1,6 +1,6 @@
 {
     "FileName":"Showtype",
     "MyEnumType":"showType",
-    "EnumSortNum":[-1,-1,-1],
+    "EnumSortNum":[0,0,0],
     "EnumSort":["normal","hot","new"]
 }
